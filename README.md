@@ -42,9 +42,9 @@ git push origin main //(git config --global init.defaultBranch main)
 
 `
 - voir la liste de commit (fleches hauts et bas pour naviguer dans la liste , q pour quitter ):
-`
+```
 git log
-`
+```
 ## reccuperer un projet
 -télcharger le zip ou faire un pull
 -recrerer le fichier.env a la racine du project avec ses propres informarions
@@ -55,8 +55,11 @@ git log
 -package pour le support d'apache
 -barre de debug / rooting/ .htaccess
 -dans le terminal:
+```
 composer require symfony/apache-pack
+```
 
-##CONTROLLER
-
+## CONTROLLER
+```
 php bin/console make:controller nom_du_controllerex(Home)
+```
