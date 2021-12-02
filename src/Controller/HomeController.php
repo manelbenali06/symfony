@@ -2,17 +2,21 @@
 
 namespace App\Controller;
 
+use App\Repository\MaisonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'home')]// il se trouve dans l'url et exécute la function
-    public function index(): Response
+    #[Route('/', name: 'home')]
+    public function index(MaisonRepository $maisonRepository): Response
     {
-        return $this->render('home/index.html.twig', [//render créer une vue home/index.html.twig
-            'controller_name' => 'HomeController',//chaine de carractere on le retrouve dans index c'est un rendu d'une vue
+        //$houses = $maisonRepository->findAll();
+        $houses = $maisonRepository->findBy([], ['id' => 'DESC'], 6);
+        //$houses = $maisonRepository->trouverSixDerniers();    //SQL       
+        return $this->render('home/index.html.twig', [   
+            'maisons' => $houses                        
         ]);
     }
 }
